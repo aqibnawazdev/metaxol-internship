@@ -4,13 +4,13 @@
 ==============================================
 */
 
-// console.log("Synchronous code");
+console.log("Synchronous code");
 
 for (let i = 0; i < 5; i++) {
-  // console.log(i);
+  console.log(i);
 }
 
-// console.log("End");
+console.log("End");
 
 /* This code will run from top to bottom first it will print 
     ==> Synchronous code
@@ -28,7 +28,7 @@ console.log("*********************************************");
 
 //SetTimeOut
 
-// console.log("Asynchronous code");
+console.log("Asynchronous code");
 
 setTimeout(() => {
   for (let i = 0; i < 5; i++) {
@@ -36,7 +36,7 @@ setTimeout(() => {
   }
 }, 2000);
 
-// console.log("End");
+console.log("End");
 
 /* 
 SetTimeOut is asnyc in nature because it doesn't block the main thread 
@@ -49,40 +49,40 @@ so the output will be
 
 //....Using Callbacks....
 
-// function serveBreakFast() {
-//   console.log("Break fast is served...");
-// }
+function serveBreakFast() {
+  console.log("Break fast is served...");
+}
 
-// function breakfastIsReady(callback) {
-//   console.log("Breakfast is ready...");
+function breakfastIsReady(callback) {
+  console.log("Breakfast is ready...");
 
-//   callback(serveBreakFast);
-// }
-// function prepareBreakfast(callback) {
-//   console.log("Preparing breakfast...");
+  callback(serveBreakFast);
+}
+function prepareBreakfast(callback) {
+  console.log("Preparing breakfast...");
 
-//   callback(serveBreakFast);
-// }
+  callback(serveBreakFast);
+}
 
 // prepareBreakfast(breakfastIsReady);
 
 //SameCode in a single function
 
-// function prepareBreakfast() {
-//   console.log("Preparing breakfast...");
+function prepareBreakfast() {
+  console.log("Preparing breakfast...");
 
-//   function breakfastIsReady() {
-//     console.log("Breakfast is ready...");
+  function breakfastIsReady() {
+    console.log("Breakfast is ready...");
 
-//     function serveBreakFast() {
-//       console.log("Break fast is served...");
-//     }
+    function serveBreakFast() {
+      console.log("Break fast is served...");
+    }
 
-//     serveBreakFast();
-//   }
+    serveBreakFast();
+  }
 
-//   breakfastIsReady();
-// }
+  breakfastIsReady();
+}
 
 // prepareBreakfast();
 
@@ -161,7 +161,6 @@ prepareBreakfast(flag)
   }).then(res => {
     console.log("Response from isBreakfastServed: ", res)
   })
-
   .catch(res => {
     console.log(res)
   })
